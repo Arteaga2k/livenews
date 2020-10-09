@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string-array name="ld_activityScreenTitles">
+        <item>@string/menu_general</item>
+        <item>@string/menu_sports</item>
+        <item>@string/menu_business</item>
+        <item>@string/menu_science</item>
+        <item>@string/menu_entertainment</item>
+        <item>@string/menu_health</item>
+
+
+    </string-array>
+
+    <array name="ld_activityScreenIcons">
+        <item>@drawable/ic_megaphone</item>
+        <item>@drawable/ic_football</item>
+        <item>@drawable/ic_group</item>
+        <item>@drawable/ic_innovation</item>
+        <item>@drawable/ic_comedy</item>
+        <item>@drawable/ic_health</item>
+
+    </array>
+
+    <string-array name="countryCodes">
+        <item>ae</item>
+        <item>ar</item>
+        <item>at</item>
+        <item>au</item>
+        <item>be</item>
+        <item>bg</item>
+        <item>br</item>
+        <item>ca</item>
+        <item>ch</item>
+        <item>cn</item>
+        <item>co</item>
+        <item>cu</item>
+        <item>cz</item>
+        <item>de</item>
+        <item>eg</item>
+        <item>fr</item>
+        <item>gb</item>
+        <item>gr</item>
+        <item>hk</item>
+        <item>hu</item>
+        <item>id</item>
+        <item>ie</item>
+        <item>il</item>
+        <item>in</item>
+        <item>it</item>
+        <item>jp</item>
+        <item>kr</item>
+        <item>lt</item>
+        <item>lv</item>
+        <item>ma</item>
+        <item>mx</item>
+        <item>my</item>
+        <item>ng</item>
+        <item>nl</item>
+        <item>no</item>
+        <item>nz</item>
+        <item>ph</item>
+        <item>pl</item>
+        <item>pt</item>
+        <item>ro</item>
+        <item>rs</item>
+        <item>ru</item>
+        <item>sa</item>
+        <item>se</item>
+        <item>sg</item>
+        <item>si</item>
+        <item>sk</item>
+        <item>th</item>
+        <item>tr</item>
+        <item>tw</item>
+        <item>ua</item>
+        <item>us</item>
+        <item>ve</item>
+        <item>za</item>
+    </string-array>
+
+
+</resources>

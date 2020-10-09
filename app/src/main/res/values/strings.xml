@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Top Headlines</string>
+    <string name="app_version">Version</string>
+    <string name="news_image">News Image</string>
+
+    <string name="google_play_store_root" translatable="false">https://play.google.com/store/apps/details?id=</string>
+    <string name="share_app_msg">Hey! I recommend this application to get breaking news headlines: %1$s .</string>
+
+
+    <string name="menu_categories">Categories</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_rate">Rate Us</string>
+    <string name="menu_sports">Sports</string>
+    <string name="menu_technology">Technology</string>
+    <string name="menu_business">Business</string>
+    <string name="menu_entertainment">Entertainment</string>
+    <string name="menu_general">General</string>
+    <string name="menu_health">Health</string>
+    <string name="menu_science">Science</string>
+
+
+</resources>
