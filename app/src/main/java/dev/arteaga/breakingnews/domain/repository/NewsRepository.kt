@@ -6,4 +6,6 @@ import io.reactivex.Observable
 interface NewsRepository {
 
     fun getTopHeadLines(category: String): Observable<NewsDetails>
+    fun getArticlesEverything(query: String): Observable<NewsDetails>
 }
+

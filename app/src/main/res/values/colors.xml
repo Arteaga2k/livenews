@@ -6,5 +6,6 @@
     <color name="colorPrimaryLight">#a563f3</color>
     <color name="colorWhite">#FFF</color>
     <color name="colorBlack">#000</color>
+    <color name="colorBackground">#FAFAFA</color>
 
 </resources>

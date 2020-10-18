@@ -9,9 +9,12 @@ import io.reactivex.Observable
 class NewsRemoteDataStore(
     private val newsRemote: NewsRemote
 ) : NewsDataStore {
+    override fun getArticlesEverything(query: String): Observable<NewsDetails> {
+        return newsRemote.getArticlesEverything(query)
+    }
 
-    override fun getTopHeadlines(category: String): Observable<NewsDetails> {
-        return newsRemote.getTopHeadlines(category)
+    override fun getTopHeadlines(category: String, country: String): Observable<NewsDetails> {
+        return newsRemote.getTopHeadlines(category, country)
     }
 
     override fun saveTopHeadlines(newsDetails: NewsDetails): Completable {

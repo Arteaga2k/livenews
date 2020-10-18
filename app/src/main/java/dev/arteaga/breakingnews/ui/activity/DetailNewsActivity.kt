@@ -42,7 +42,7 @@ class DetailNewsActivity : AppCompatActivity() {
 
     companion object {
 
-        private val INTENT_ARTICLE_URL = "article_url"
+        private const val INTENT_ARTICLE_URL = "article_url"
 
         fun newIntent(context: Context, article: NewsDetails.Article): Intent {
             val intent = Intent(context, DetailNewsActivity::class.java)

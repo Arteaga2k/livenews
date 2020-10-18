@@ -7,7 +7,9 @@ import io.reactivex.Observable
 
 interface NewsDataStore {
 
-    fun getTopHeadlines(category: String): Observable<NewsDetails>
+    fun getArticlesEverything(query: String): Observable<NewsDetails>
+
+    fun getTopHeadlines(category: String, country: String): Observable<NewsDetails>
 
     fun saveTopHeadlines(newsDetails: NewsDetails) : Completable
 

@@ -73,6 +73,17 @@ dependencies {
     implementation 'com.codemybrainsout.rating:ratingdialog:1.0.8'
     implementation 'com.yarolegovich:sliding-root-nav:1.1.1'
 
+    implementation 'com.github.allan1st:JellyRefreshLayout:2.0'
+
+    implementation "com.airbnb.android:lottie:3.4.0"
+
+    implementation 'com.miguelcatalan:materialsearchview:1.4.0'
+
+    implementation 'com.google.android.material:material:1.2.1'
+
+
+
+
 
 
 }

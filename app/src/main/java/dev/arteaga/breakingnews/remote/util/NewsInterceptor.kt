@@ -14,17 +14,17 @@ class NewsInterceptor constructor(private val context: Context, private val apiK
 
     @Throws(IOException::class)
     override fun intercept(chain: Interceptor.Chain): Response {
-        val tm = context.getSystemService(TELEPHONY_SERVICE) as TelephonyManager
+       /* val tm = context.getSystemService(TELEPHONY_SERVICE) as TelephonyManager
         var countryCodeValue = tm.networkCountryIso
 
         countryCodeValue = if (NetworkUtil.isCountryAvailable(context, countryCodeValue)) countryCodeValue else "us"
 
-        Log.i("country ", countryCodeValue)
+        Log.i("country ", countryCodeValue)*/
 
 
         var request = chain.request()
         val url = request.url.newBuilder()
-            .addQueryParameter("country", countryCodeValue)
+           //.addQueryParameter("country", countryCodeValue)
             .addQueryParameter("apiKey", apiKey)
             .build()
         request = request.newBuilder().url(url).build()

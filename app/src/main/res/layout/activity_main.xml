@@ -4,30 +4,69 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryLight"
+    android:background="@color/colorBackground"
     tools:context=".ui.activity.NewsListActivity">
 
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    <FrameLayout
+        android:id="@+id/toolbar_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        app:theme="@style/ToolbarColoredBackArrow"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:titleTextColor="@android:color/white" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:theme="@style/ToolbarColoredBackArrow"
+            app:titleTextColor="@android:color/white" />
+
+        <com.miguelcatalan.materialsearchview.MaterialSearchView
+            android:id="@+id/search_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:theme="@style/ToolbarColoredBackArrow"
+            app:titleTextColor="@android:color/white" />
+    </FrameLayout>
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvNewsList"
+    <uk.co.imallan.jellyrefresh.JellyRefreshLayout
+        android:id="@+id/jelly_refresh"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:textColor="@color/white"
+        app:headerHeight="56dp"
+        app:jellyColor="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        tools:listitem="@layout/news_item" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_container"
+        app:pullHeight="128dp"
+        app:triggerHeight="96dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvNewsList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/news_item" />
+
+
+    </uk.co.imallan.jellyrefresh.JellyRefreshLayout>
+
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:visibility="gone"
+        android:text="pepe"
+        app:icon="@drawable/ic_action_navigation_close"
+        app:iconGravity="textEnd"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,8 +9,11 @@ import io.reactivex.Observable
 class NewsCacheDataStore(
     private val newsCache: NewsCache
 ) : NewsDataStore {
+    override fun getArticlesEverything(query: String): Observable<NewsDetails> {
+        TODO("Not yet implemented")
+    }
 
-    override fun getTopHeadlines(category: String): Observable<NewsDetails> {
+    override fun getTopHeadlines(category: String, country: String): Observable<NewsDetails> {
         return newsCache.getTopHeadlines()
     }
 

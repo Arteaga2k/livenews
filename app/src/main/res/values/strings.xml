@@ -18,5 +18,7 @@
     <string name="menu_health">Health</string>
     <string name="menu_science">Science</string>
 
+    <string name="loading">Loading...</string>
+
 
 </resources>

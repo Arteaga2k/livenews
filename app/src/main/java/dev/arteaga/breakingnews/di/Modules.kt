@@ -56,6 +56,8 @@ val domainModule: Module = module {
 }
 
 val dataModule: Module = module {
+
+
     single<NewsRepository> {
         NewsDataRepository(
             newsDataStoreFactory = get(),

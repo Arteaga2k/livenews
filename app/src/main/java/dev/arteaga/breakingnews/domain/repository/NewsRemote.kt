@@ -6,5 +6,6 @@ import io.reactivex.Observable
 
 interface NewsRemote {
 
-    fun getTopHeadlines(category: String) : Observable<NewsDetails>
+    fun getTopHeadlines(category: String, country: String) : Observable<NewsDetails>
+    fun getArticlesEverything(query: String): Observable<NewsDetails>
 }

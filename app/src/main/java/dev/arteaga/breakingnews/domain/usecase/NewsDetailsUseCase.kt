@@ -15,4 +15,9 @@ open class NewsDetailsUseCase(
         return newsRepository.getTopHeadLines(category)
             .compose(schedulerProvider.create())
     }
+
+    fun getQueryEverything(query: String): Observable<NewsDetails> {
+        return newsRepository.getArticlesEverything(query)
+            .compose(schedulerProvider.create())
+    }
 }
