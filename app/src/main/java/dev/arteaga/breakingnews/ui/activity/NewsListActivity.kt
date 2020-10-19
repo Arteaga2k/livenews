@@ -22,6 +22,7 @@ import com.yarolegovich.slidingrootnav.SlidingRootNav
 import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder
 import dev.arteaga.breakingnews.BuildConfig
 import dev.arteaga.breakingnews.R
+import dev.arteaga.breakingnews.R.id.jelly_refresh
 import dev.arteaga.breakingnews.remote.NewsDetails
 import dev.arteaga.breakingnews.ui.Resource
 import dev.arteaga.breakingnews.ui.adapter.NewsListAdapter
@@ -58,7 +59,7 @@ class NewsListActivity : AppCompatActivity(), DrawerAdapter.OnItemSelectedListen
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
 
         setContentView(R.layout.activity_main)
         // Find the toolbar view inside the activity layout
@@ -68,8 +69,8 @@ class NewsListActivity : AppCompatActivity(), DrawerAdapter.OnItemSelectedListen
         setSupportActionBar(toolbar)
 
 
-        supportActionBar!!.setDisplayHomeAsUpEnabled(false)
-        supportActionBar!!.setHomeAsUpIndicator(R.drawable.ic_baseline_menu)
+        // supportActionBar!!.setDisplayHomeAsUpEnabled(false)
+        //  supportActionBar!!.setHomeAsUpIndicator(R.drawable.ic_baseline_menu)
 
 
         setupSearchView()
@@ -80,12 +81,10 @@ class NewsListActivity : AppCompatActivity(), DrawerAdapter.OnItemSelectedListen
         screenTitles = loadScreenTitles()
         setupDrawerAdapter()
 
-        mJellyLayout = findViewById<JellyRefreshLayout>(R.id.jelly_refresh);
+        mJellyLayout = findViewById<JellyRefreshLayout>(R.id.jelly_refresh)
 
 
-        mJellyLayout.setPullToRefreshListener {
-            triggerGetTopHeadlines(category)
-        }
+        mJellyLayout.setPullToRefreshListener { triggerGetTopHeadlines(category) }
 
         val loadingView: View = LayoutInflater.from(this).inflate(R.layout.view_loading, null)
         mJellyLayout.setLoadingView(loadingView)
@@ -99,7 +98,6 @@ class NewsListActivity : AppCompatActivity(), DrawerAdapter.OnItemSelectedListen
 
         searchView.setOnQueryTextListener(object : MaterialSearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
-                Log.i("query listener", query)
 
                 if (query.isNotEmpty()) {
                     triggerGetSearchArticle(query)
@@ -124,6 +122,7 @@ class NewsListActivity : AppCompatActivity(), DrawerAdapter.OnItemSelectedListen
         fab.setOnClickListener {
             fab.visibility = View.GONE
             triggerGetTopHeadlines(category)
+            supportActionBar!!.title = category
         }
 
     }
@@ -202,9 +201,12 @@ class NewsListActivity : AppCompatActivity(), DrawerAdapter.OnItemSelectedListen
                 }
                 is Resource.Success -> {
                     rvNewsList.adapter = NewsListAdapter(it.data.articles, this)
-                    mJellyLayout!!.postDelayed({ mJellyLayout!!.isRefreshing = false }, 500)
+                    mJellyLayout.postDelayed({ mJellyLayout.isRefreshing = false }, 500)
                     fab.text = query
                     fab.visibility = View.VISIBLE
+                    supportActionBar!!.title = getString(
+                        R.string.search_results, query
+                    )
                 }
                 is Resource.Failure -> {
                     Log.e("Failure", "Failure: ${it.throwable.localizedMessage}")
@@ -213,7 +215,7 @@ class NewsListActivity : AppCompatActivity(), DrawerAdapter.OnItemSelectedListen
                         "Failure: ${it.throwable.localizedMessage}",
                         Toast.LENGTH_SHORT
                     ).show()
-                    mJellyLayout!!.postDelayed({ mJellyLayout!!.isRefreshing = false }, 500)
+                    mJellyLayout.postDelayed({ mJellyLayout.isRefreshing = false }, 500)
                 }
             }
 
@@ -232,7 +234,7 @@ class NewsListActivity : AppCompatActivity(), DrawerAdapter.OnItemSelectedListen
                     rvNewsList.adapter = NewsListAdapter(it.data.articles, this)
 
                     firstBoot = false
-                    mJellyLayout!!.postDelayed({ mJellyLayout!!.isRefreshing = false }, 500)
+                    mJellyLayout.postDelayed({ mJellyLayout.isRefreshing = false }, 500)
                 }
                 is Resource.Failure -> {
                     Log.e("Failure", "Failure: ${it.throwable.localizedMessage}")
@@ -241,7 +243,7 @@ class NewsListActivity : AppCompatActivity(), DrawerAdapter.OnItemSelectedListen
                         "Failure: ${it.throwable.localizedMessage}",
                         Toast.LENGTH_SHORT
                     ).show()
-                    mJellyLayout!!.postDelayed({ mJellyLayout!!.isRefreshing = false }, 500)
+                    mJellyLayout.postDelayed({ mJellyLayout.isRefreshing = false }, 500)
                 }
             }
         })
@@ -297,7 +299,11 @@ class NewsListActivity : AppCompatActivity(), DrawerAdapter.OnItemSelectedListen
             }
 
         }
-        supportActionBar!!.title = title
+        supportActionBar!!.title = category
+        fab.visibility = View.GONE
+
+
+
         if (!firstBoot)
             triggerGetTopHeadlines(category)
 
@@ -321,10 +327,10 @@ class NewsListActivity : AppCompatActivity(), DrawerAdapter.OnItemSelectedListen
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_main, menu);
+        menuInflater.inflate(R.menu.menu_main, menu)
 
         val item = menu!!.findItem(R.id.action_search)
-        searchView!!.setMenuItem(item)
+        searchView.setMenuItem(item)
 
         return super.onCreateOptionsMenu(menu)
 

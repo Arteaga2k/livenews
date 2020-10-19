@@ -11,8 +11,8 @@ android {
         applicationId "dev.arteaga.breakingnews"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 2
-        versionName "1.1"
+        versionCode 4
+        versionName "1.3"
         buildConfigField "String", "NEWS_API_KEY", '"6a0d0cbff6bf41709867681e1909ad9b"'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

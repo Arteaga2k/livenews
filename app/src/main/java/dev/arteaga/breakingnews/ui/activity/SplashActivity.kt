@@ -15,7 +15,7 @@ import kotlin.concurrent.schedule
 
 class SplashActivity : AppCompatActivity() {
 
-    private val splashScreenDuration = 2200L
+    private val splashScreenDuration = 2000L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,6 +44,7 @@ class SplashActivity : AppCompatActivity() {
 
         Timer("SettingUp", false).schedule(splashScreenDuration) {
             startActivity(Intent(this@SplashActivity, NewsListActivity::class.java))
+            finish()
         }
     }
 
