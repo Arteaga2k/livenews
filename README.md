@@ -1,3 +1,3 @@
 # livenews
 
-Android Project using MVVV 
+Android Project using MVVM
