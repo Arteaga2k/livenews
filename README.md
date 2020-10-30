@@ -1,3 +1,3 @@
 # livenews
 
-Android Project using MVVM
+Android Project using clean architecture + MVVM
