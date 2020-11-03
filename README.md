@@ -1,6 +1,6 @@
 # Livenews app
 
-> Una aplicación construida usando clean architecture + mvvvm.
+> Una aplicación construida usando clean architecture + mvvm.
 
 ## Componentes usados
 Kotlin, LiveData, ViewModel, RxKotlin, Retrofit, Koin, Room
